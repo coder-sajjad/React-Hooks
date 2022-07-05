@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import MsgContext from '../context/msgContext';
 
 const Contact = () => {
+
+  const { msg, setMsg } = useContext(MsgContext);
+
   return (
-    <div>contact</div>
+    <>
+      <Container>
+        <Row>
+          <Col>
+            <div className="my-3">
+              <label htmlFor="">Contact Page</label>
+              <h3> { msg } </h3>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </>
   )
 }
 

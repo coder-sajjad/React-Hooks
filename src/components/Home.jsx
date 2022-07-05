@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import MsgContext from '../context/msgContext';
 
 const Home = () => {
+
+  const {msg, setMsg} = useContext(MsgContext);
 
   return (
     <section>
@@ -51,10 +54,9 @@ const Home = () => {
         <Row>
           <Col>
           <div className="my-3">
+          <h3> { msg } </h3>
             <label htmlFor="">Home Page</label>
-            <input type="text" className='form-control' />
-            <hr />
-            <h3> </h3>
+            <input type="text" value={msg} onChange={ (e) => setMsg(e.target.value )} className='form-control' placeholder='Type your text' />
           </div>
           </Col>
         </Row>
